@@ -42,8 +42,9 @@
     </ul>
     <p>The RLPL can do much more than just printing code! We can compile and run it:</p>
     <ul>
-      <li>Write <span style="font-family:monospace;">(compile (function hello-world () void (puts "hello, world")))</span></li> (you may know this is equivalent to <span style="font-family:monospace;">(defun hello-world () void (puts "hello, world"))</span> because of how "defun" is defined).</li>
-    <li>You should have seen that (obviously) compiling yields no new C code. But after compilation, our function is available to use! So let's write a macro that uses it:</li>
+      <li>Write <span style="font-family:monospace;">(compile (function hello-world () void (puts "hello, world")))</span>.<br/>(You may know this is equivalent to <span style="font-family:monospace;">(defun hello-world () void (puts "hello, world"))</span> because of how "defun" is defined.)</li>
+      <li>You should have seen that (obviously) compiling yields no new C code. But after compilation, our function is available to use! So let's write a macro that uses it: <span style="font-family:monospace;">(defmacro hello-world-macro (progn (hello-world) (make-cexp "" "" "" "")))</span></li></li>
+      <li>Finally, call the macro: <span style="font-family:monospace;">(hello-world-macro)</span></li>
     </ul>
     <p>Want to experiment even more?</p>
     <ul>
