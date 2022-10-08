@@ -27,10 +27,30 @@
     <p>Once the machine has booted, you should see a shell prompt. Paste the following:</p>
     <p style="font-family:monospace;">curl https://shenniger.github.io/try-dolorem-c/rlpl.sh | bash</span>
     <p>Note: You paste by right-clicking <i>on the cursor</i> (not anywhere else in the terminal window!). Press Enter after pasting.</p>
+    <p><i>“Could not resolve host” error? You were probably slightly too fast. Just wait 5-10 seconds and try again.</i></p>
 
     <iframe src="" width=800 height=600 style="display:none;"></iframe>
 
     <h5>Step 3: Experiment</h5>
-
+    <p>What you are seeing is a “read-lower-print-loop”. It reads a dolorem-c expression, lowers it, and prints the resulting C code in the format <span style="font-family:monospace;">[expression|context|global|header]</span>.
+    <p>Start with something simple:</p>
+    <ul>
+      <li>Start with something simple. Type in a number or a string literal.</li>
+      <li>Then maybe use an operator. Try <span style="font-family:monospace;">(add 1 1)</span></li>.
+      <li>Try calling a function, like <span style="font-family:monospace;">(puts "hello, world")</span></li>.
+      <li>Now, let's make a function. Try <span style="font-family:monospace;">(function hello-world () void (puts "hello, world"))</span></li>.
+    </ul>
+    <p>The RLPL can do much more than just printing code! We can compile and run it:</p>
+    <ul>
+      <li>Write <span style="font-family:monospace;">(compile (function hello-world () void (puts "hello, world")))</span></li> (you may know this is equivalent to <span style="font-family:monospace;">(defun hello-world () void (puts "hello, world"))</span> because of how "defun" is defined).</li>
+    <li>You should have seen that (obviously) compiling yields no new C code. But after compilation, our function is available to use! So let's write a macro that uses it:</li>
+    </ul>
+    <p>Want to experiment even more?</p>
+    <ul>
+      <li>Define a prototype for <span style="font-family:monospace;">system</span> and call it from within a macro.</li>
+      <li>Try defining (and using) a more complex macro.</li>
+      <li>Did you know you can <span style="font-family:monospace;">dlopen</span>? Explore the VM and call it to open and use more libraries.</li>.
+      <li>Write a REPL on top of the RLPL.</li>.
+    </ul>
   </body>
 </html>
