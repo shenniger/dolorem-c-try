@@ -5,7 +5,7 @@ curl https://shenniger.github.io/try-dolorem-c/dolorem-c.tar.bz2 | tar xjf -
 cd dolorem-c
 clear
 echo Launching RLPL...
-while 1; do
+while true; do
   LD_LIBRARY_PATH=. ./dolorem rlpl.dlr
   echo Restarting RLPL for you…
 done
