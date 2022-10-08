@@ -7,5 +7,5 @@ clear
 echo Launching RLPL...
 while true; do
   LD_LIBRARY_PATH=. ./dolorem rlpl.dlr
-  echo Restarting RLPL for you…
+  echo Restarting RLPL for you...
 done
